@@ -14,7 +14,6 @@ st.markdown("""
             """,unsafe_allow_html=True)
 def predict_cluster(X_data : pd.DataFrame):
     with open("/Users/jugalshah/Desktop/Final_Classification_Clustering_model_sem_8/finalized_xgboost_model.pkl","rb") as f:
-    # with open(r"C:\Users\Dell\Downloads\random_forest_model.pkl","rb") as f:
         model = pkl.load(f)
         return model.predict(X_data)
 
