@@ -44,14 +44,10 @@ def input_fields():
 
     is_parent = 0 if is_parent == "No" else 1
 
-    df =   [[is_parent, income, teenhome, kidhome, age, family_size, spent]]
+    df = [[is_parent,income,teenhome,kidhome,age,family_size,spent]]
 
     X_data = pd.DataFrame(df,columns=["Is_Parent","Income","Teenhome","Kidhome","Age","Family_Member_Count","Spent"])
-    st.write("<div style='display: flex; align-items: center;'>"
-         "<hr style='flex: 1; border: none; height: 5px; background: linear-gradient(to right, #FF534D, #FFF47D);'>"
-         "<span style='padding: 0 10px; color: #FFF47D;font-size:35px;'>OR</span>"
-         "<hr style='flex: 1; border: none;height: 5px; background: linear-gradient(to left, #FF534D, #FFF47D);'>"
-         "</div>", unsafe_allow_html=True)
+
     uploaded_file = st.file_uploader("Add File", type=["csv"])
     if uploaded_file is not None:
         st.session_state["uploaded_file"] = uploaded_file
@@ -134,7 +130,6 @@ def show_result():
             label = predict_cluster(X_data=X_data)
             label_no = label[0].item()
             st.header(f"Cluster: {label[0]}")
-            #Check pls!!!
             insights_new = get_insights()[label_no]
 
             st.markdown("""
@@ -236,16 +231,6 @@ def show_file_result():
     st.button('Home', on_click=set_page, args=["Input Data"])
 
 def main():
-    if 'page' not in st.session_state:
-        st.session_state.page = 'Input Data'
-
-    if st.session_state.page == 'Input Data':
-        input_fields()
-    elif st.session_state.page == 'Display Data':
-        show_result ()
-    elif st.session_state.page == 'File Data':
-        show_file_result()
-if __name__ == "__main__":
     if 'page' not in st.session_state:
         st.session_state.page = 'Input Data'
 
