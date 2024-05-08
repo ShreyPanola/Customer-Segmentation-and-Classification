@@ -246,4 +246,14 @@ def main():
     elif st.session_state.page == 'File Data':
         show_file_result()
 if __name__ == "__main__":
+    if 'page' not in st.session_state:
+        st.session_state.page = 'Input Data'
+
+    if st.session_state.page == 'Input Data':
+        input_fields()
+    elif st.session_state.page == 'Display Data':
+        show_result ()
+    elif st.session_state.page == 'File Data':
+        show_file_result()
+if __name__ == "__main__":
     main()
