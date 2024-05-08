@@ -1,10 +1,3 @@
-# import streamlit as st
-# import streamlit.components.v1 as components  # Import Streamlit
-
-# with open('Customer_WebPage.html', 'r') as file:
-#     html_content = file.read()
-# # Render the HTML
-# components.html(html_content, height=600)
 import streamlit as st
 import pickle as pkl
 import pandas as pd
